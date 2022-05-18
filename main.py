@@ -14,23 +14,24 @@ def pruning(main_folder):
     list_folders = os.listdir(path=f"C:\\Users\\nastydemigod\\Desktop\\kurs\\audio_data\\{main_folder}")
     four_seconds = 4 * 1000
     for folder in list_folders:
-        list_notes = os.listdir(path=f"C:\\Users\\nastydemigod\\Desktop\\kurs\\audio_data\\{main_folder}\\{folder}")
+        list_notes = os.listdir(path=f"C:\\Users\\nastydemigod\\Desktop\\notes_piano_octave\\audio_data\\{main_folder}\\{folder}")
         print(f"Сокарщение аудио до 4 секунд в папке: {folder}")
         for note in list_notes:
-            song = AudioSegment.from_file(f"C:\\Users\\nastydemigod\\Desktop\\kurs\\audio_data\\{main_folder}\\{folder}\\{note}", "mp3")
+            song = AudioSegment.from_file(f"C:\\Users\\nastydemigod\\Desktop\\notes_piano_octave\\audio_data\\{main_folder}\\{folder}\\{note}", "mp3")
             new_song = song[:four_seconds]
-            new_song.export(f"C:\\Users\\nastydemigod\\Desktop\\kurs\\audio_data\\{main_folder}\\{folder}\\{note}", format="mp3")
+            new_song.export(f"C:\\Users\\nastydemigod\\Desktop\\notes_piano_octave\\audio_data\\{main_folder}\\{folder}\\{note}", format="mp3")
 
 # создание изображений
 def get_img(main_folder):
-    cmap = plt.get_cmap('inferno')
-    list_folders = os.listdir(path=f"C:\\Users\\nastydemigod\\Desktop\\kurs\\img_data\\{main_folder}")
+    # cmap = plt.get_cmap('inferno')
+    cmap = plt.get_cmap('Greys')
+    list_folders = os.listdir(path=f"C:\\Users\\nastydemigod\\Desktop\\notes_piano_octave\\img_data\\{main_folder}")
     for folder in list_folders:
-        list_notes = os.listdir(path=f"C:\\Users\\nastydemigod\\Desktop\\kurs\\audio_data\\{main_folder}\\{folder}")
+        list_notes = os.listdir(path=f"C:\\Users\\nastydemigod\\Desktop\\notes_piano_octave\\audio_data\\{main_folder}\\{folder}")
         print(f"Создание изображения из аудио в папке: {folder}")
         for note in list_notes:
-            song = f"C:\\Users\\nastydemigod\\Desktop\\kurs\\audio_data\\{main_folder}\\{folder}\\{note}"
-            img_path = f"C:\\Users\\nastydemigod\\Desktop\\kurs\\img_data\\{main_folder}\\{folder}\\{note[:-4]}.png"
+            song = f"C:\\Users\\nastydemigod\\Desktop\\notes_piano_octave\\audio_data\\{main_folder}\\{folder}\\{note}"
+            img_path = f"C:\\Users\\nastydemigod\\Desktop\\notes_piano_octave\\img_data\\{main_folder}\\{folder}\\{note[:-4]}.png"
             if os.path.exists(img_path):
                 continue
             else:
@@ -49,7 +50,7 @@ if __name__ == '__main__':
     # pruning("test")
 
     # создание изображений в тренировочном наборе
-    # get_img("train")
+    get_img("train")
 
     # создание изображений в тестовом наборе
     # get_img("test")
