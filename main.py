@@ -24,7 +24,7 @@ def pruning(main_folder):
 # создание изображений
 def get_img(main_folder):
     # cmap = plt.get_cmap('inferno')
-    # Цветовая карта
+    # Цветовая карта - градации серого
     cmap = plt.get_cmap('Greys')
     list_folders = os.listdir(path=f"C:\\Users\\nastydemigod\\Desktop\\notes_piano_octave\\img_data\\{main_folder}")
     for folder in list_folders:
